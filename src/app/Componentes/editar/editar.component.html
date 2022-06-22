@@ -1,0 +1,52 @@
+<div class="container col-md-6">
+  <div class="card">
+    <div class="card-header">
+      <h3>Agregar Datos</h3>
+    </div>
+    <div class="card-body">
+      <form action="" method="post">
+        <div class="form-group">
+          <label>Documento del usuario</label>
+          <input type="text" class="form-control" readonly name="documento" [(ngModel)]="datoActual.documento" [required]="true" style="cursor: not-allowed;">
+        </div>
+        <div class="form-group" style="padding-top: 20px;">
+          <label>Edad del usuario</label>
+          <input type="number" class="form-control" name="edad" [(ngModel)]="datoActual.edad" [required]="true">
+        </div>
+        <div class="form-group" style="padding-top: 20px;">
+          <label>Peso del usuario</label>
+          <input type="number" class="form-control" name="peso" [(ngModel)]="datoActual.peso" [required]="true" id="peso" oninput="calcular()">
+        </div>
+        <div class="form-group" style="padding-top: 20px;">
+          <label>Altura del usuario</label>
+          <input type="number" class="form-control" name="altura" [(ngModel)]="datoActual.altura" [required]="true" id="altura" oninput="calcular()">
+        </div>
+        <div class="form-group" style="padding-top: 20px;">
+          <label>Género del usuario</label>
+          <select name="genero" class="form-control form-select" [(ngModel)]="datoActual.genero" [required]="true">
+            <option value="Masculino">Masculino</option>
+            <option value="Femenino">Femenino</option>
+            <option value="Otro">Otro</option>
+          </select>
+        </div>
+        <div class="form-group" style="padding-top: 20px;">
+          <label>IMC del usuario</label>
+          <input type="number"  class="form-control" name="imc" [(ngModel)]="datoActual.imc" [required]="true" id="imc">
+        </div>
+        <button type="submit" class="btn btn-success" style="margin-top: 20px;" (click)="guardarDato()">Actualizar</button>
+        <button class="btn btn-danger" style="margin-top: 20px; margin-left: 10px;" [routerLink]="['/listar']" routerLinkActive="router-link-active" >Volver</button>
+      </form>
+    </div>
+  </div>
+</div>
+<style>
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+</style>
